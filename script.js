@@ -3,6 +3,13 @@ inputElement = document.querySelector('.input-tasks');
 
 let tasks = JSON.parse(localStorage.getItem("@toDoList")) || [];
 
+document.addEventListener("keypress", function(e) {
+    if(e.key === "Enter") {
+        const btn = document.querySelector('.btnRegister');
+        btn.click()
+    }
+})
+
 function registerTasks() {
     if (inputElement.value === ""){
         alert("Digite algum tarefa");
@@ -18,6 +25,7 @@ function registerTasks() {
         saveData();
     }
 }
+
 
 function renderTasks() {
     // console.log(tasks);
@@ -40,8 +48,11 @@ function renderTasks() {
         tasksElement.appendChild(liElement);
         liElement.appendChild(taskText);
         liElement.appendChild(linkElement);
+
     });
 }
+
+renderTasks();
 
 function deleteTask(position) {
     tasks.splice(position, 1);
