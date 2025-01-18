@@ -1,7 +1,11 @@
 tasksElement = document.querySelector("#tasks ul")
 inputElement = document.querySelector('.input-tasks');
+textBox = document.querySelector('.text-boxEmpty')
+
 
 let tasks = JSON.parse(localStorage.getItem("@toDoList")) || [];
+
+
 
 document.addEventListener("keypress", function(e) {
     if(e.key === "Enter") {
@@ -27,11 +31,17 @@ function registerTasks() {
 }
 
 
+
+
 function renderTasks() {
-    // console.log(tasks);
     tasksElement.innerHTML = "";
 
     tasks.map((toDo) => {
+        if(tasks.length != 0) {
+            textBox.innerHTML = "";
+            console.log(textBox)
+        }
+
         let liElement = document.createElement("li");
         let taskText = document.createTextNode(toDo);
 
@@ -52,9 +62,10 @@ function renderTasks() {
         tasksElement.appendChild(liElement);
         liElement.appendChild(taskText);
         liElement.appendChild(linkElement);
-
     });
 }
+
+
 
 renderTasks();
 
