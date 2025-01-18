@@ -35,6 +35,9 @@ function renderTasks() {
         let liElement = document.createElement("li");
         let taskText = document.createTextNode(toDo);
 
+        let checkboxElement = document.createElement("input");
+        checkboxElement.setAttribute("type", "checkbox")
+
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
 
@@ -45,6 +48,7 @@ function renderTasks() {
 
         linkElement.setAttribute("onclick", `deleteTask(${position})`);
 
+        liElement.append(checkboxElement)
         tasksElement.appendChild(liElement);
         liElement.appendChild(taskText);
         liElement.appendChild(linkElement);
@@ -60,10 +64,14 @@ function deleteTask(position) {
     saveData();
 }
 
+function deleteList() {
+    tasks = [];
+    renderTasks();
+    saveData();
+}
 
 function registerButton() {
     registerTasks();
-
 }
 
 

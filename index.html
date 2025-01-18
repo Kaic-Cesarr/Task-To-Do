@@ -9,17 +9,28 @@
     <title>ToDo List </title>
 </head>
 <body>
-    <div id="tasks">
-        <h1>Digite uma tarefa</h1>
+    <main>
+    <section id="sidebar">
 
-        <div>
-            <input type="text" placeholder="Ex: Limpar a casa" class="input-tasks">
-            <button class="btnRegister" onclick="registerButton()">Registrar</button>
+    </section>
+    <div id="tasks">
+        <div class="box-text">
+            <h1>Digite uma tarefa</h1>
+
+            <div class="box-input">
+                <input type="text" placeholder="Ex: Limpar a casa" class="input-tasks">
+                <button class="btnRegister" onclick="registerButton()">Registrar</button>
+            </div>
         </div>
 
-        <ul>
-            
-        </ul>
+        <div class="box-list">
+            <ul>
+                
+            </ul>
+        </div>
+
+        <button onclick="deleteList()">Deletar tudo</button>
     </div>
+    </main>
 </body>
 </html>
