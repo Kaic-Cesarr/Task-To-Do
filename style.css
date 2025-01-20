@@ -16,11 +16,11 @@ main {
     display: flex;
 }
 
-#sidebar {
+/* #sidebar {
     width: 350px;
     height: 100vh;
     background-color: green;
-}
+} */
 
 #tasks {
     width: 80%;

@@ -7,8 +7,6 @@ btnRemoveAll = document.querySelector('.removeAll');
 
 let tasks = JSON.parse(localStorage.getItem("@toDoList")) || [];
 
-
-
 document.addEventListener("keypress", function(e) {
     if(e.key === "Enter") {
         const btn = document.querySelector('.btnRegister');
@@ -22,7 +20,7 @@ function registerTasks() {
         return false;
     } else {
 
-        let newTask = inputElement.value;
+        let newTask = {id: tasks.length, text: inputElement.value, check: false};
 
         tasks.push(newTask);
         inputElement.value = "";
@@ -45,22 +43,30 @@ function renderTasks() {
         }
 
         let liElement = document.createElement("li");
-        let taskText = document.createTextNode(toDo);
+        let taskText = document.createTextNode(toDo.text); 
+        
 
         let checkboxElement = document.createElement("input");
         checkboxElement.setAttribute("type", "checkbox")
+        
 
         checkboxElement.addEventListener('change', (event) => {
             console.log(event.target.checked);
 
             if(event.target.checked === true) {
                 console.log("Marcado");
+                toDo.check = true;
+
+                checkboxElement.attr('', 'checked')
 
                 liElement.setAttribute('style', 'text-decoration: line-through');
             } else {
                 console.log("Desmarcado");
                 liElement.setAttribute('style', 'text-decoration: none');
+                toDo.check = false;
             }
+
+            saveData();
         })
 
         let linkElement = document.createElement("a");
@@ -85,7 +91,6 @@ function renderTasks() {
 
     });
 }
-
 
 renderTasks();
 
