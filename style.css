@@ -8,7 +8,6 @@
 }
 
 body {
-    background-color: #59a9de;
 }
 
 main {
@@ -26,7 +25,6 @@ main {
 #tasks {
     width: 80%;
     height: 100vh;
-    background-color: blue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,10 +33,6 @@ main {
 .box-text {
     width: 700px;
     margin-top: 100px;
-    padding: 30px;
-
-    background-color: #fff;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,12 +43,16 @@ main {
 }
 
 .box-input input {
-    width: 500px;
+    width: 600px;
     height: 50px;
     padding: 0 10px;
     border-radius: 7px;
     outline: none;
     border: 1px solid #ccc;
+}
+
+.box-input input:focus {
+    border: 2px solid #5292bc;
 }
 
 .box-input button {
@@ -64,21 +62,48 @@ main {
     border: none;
     background-color: #59a9de;
     cursor: pointer;
+    transition: .3s;
+}
+
+.box-input button:hover {
+    background-color: #5292bc;
+
 }
 
 .box-list {
-    width: 700px;
+    width: 680px;
     height: 400px;
-    background-color: #ccc;
+    margin-top: 70px;
 
 }
 
 .box-list li {
-    background-color: #894747;
+    background-color: #f5f4f4;
     margin-bottom: 7px;
     list-style: none;
     padding: 10px 2cqw;
     display: flex;
+
+    border-radius: 7px;
+}
+
+.box-list input{
+    margin-right: 10px; 
+}
+
+.box-list input:checked{
+    /* margin-right: 40px;  */
+}
+
+
+.box-list a {
+    position: absolute;
+    right: 16%;
+}
+
+.box-list li:hover {
+    background-color: #d2d1d1;
+
 }
 
 .box-empty {

@@ -3,6 +3,7 @@ inputElement = document.querySelector('.input-tasks');
 textBox = document.querySelector('.text-boxEmpty')
 
 
+
 let tasks = JSON.parse(localStorage.getItem("@toDoList")) || [];
 
 
@@ -48,10 +49,14 @@ function renderTasks() {
         let checkboxElement = document.createElement("input");
         checkboxElement.setAttribute("type", "checkbox")
 
+
+
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
 
-        let linkText = document.createTextNode(" deletar");
+        
+
+        let linkText = document.createTextNode("deletar");
         linkElement.appendChild(linkText);
 
         let position = tasks.indexOf(toDo);
@@ -62,8 +67,10 @@ function renderTasks() {
         tasksElement.appendChild(liElement);
         liElement.appendChild(taskText);
         liElement.appendChild(linkElement);
+
     });
 }
+
 
 
 
