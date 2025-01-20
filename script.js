@@ -1,6 +1,7 @@
 tasksElement = document.querySelector("#tasks ul")
 inputElement = document.querySelector('.input-tasks');
 textBox = document.querySelector('.text-boxEmpty')
+btnRemoveAll = document.querySelector('.removeAll');
 
 
 
@@ -66,6 +67,9 @@ function renderTasks() {
         linkElement.setAttribute("href", "#");
 
         
+        // Criar lógica do botão de remover tudo
+        btnRemoveAll.setAttribute('style', 'display: block')
+        
 
         let linkText = document.createTextNode("deletar");
         linkElement.appendChild(linkText);
@@ -81,8 +85,6 @@ function renderTasks() {
 
     });
 }
-
-
 
 
 renderTasks();
@@ -106,4 +108,6 @@ function registerButton() {
 
 function saveData() {
     localStorage.setItem("@toDoList", JSON.stringify(tasks));
+
+    // Adicionar checkbox no localStorage
 }
