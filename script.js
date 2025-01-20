@@ -49,7 +49,18 @@ function renderTasks() {
         let checkboxElement = document.createElement("input");
         checkboxElement.setAttribute("type", "checkbox")
 
+        checkboxElement.addEventListener('change', (event) => {
+            console.log(event.target.checked);
 
+            if(event.target.checked === true) {
+                console.log("Marcado");
+
+                liElement.setAttribute('style', 'text-decoration: line-through');
+            } else {
+                console.log("Desmarcado");
+                liElement.setAttribute('style', 'text-decoration: none');
+            }
+        })
 
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
