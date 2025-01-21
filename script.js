@@ -59,58 +59,65 @@ function renderTasks() {
 
         let liElement = document.createElement("li");
         let taskText = document.createTextNode(toDo.text); 
+
+
+        let rightColumnLi = document.createElement('div');
         
 
         let checkboxElement = document.createElement("input");
         checkboxElement.setAttribute("type", "checkbox")
         
 
-        liElement.addEventListener('change', (event) => {
-
-            console.log(event.target.checked);
-
-            if(event.target.checked === true) {
-                toDo.check = true;
-                console.log(`Array Check: ${toDo.check}`)
-                liElement.setAttribute('style', 'text-decoration: line-through');
-
-            } else {
-                toDo.check = false;
-                console.log(`Array Check: ${toDo.check}`)
-                liElement.setAttribute('style', 'text-decoration: none');
-
-            }
-            saveData();
-        })
-
+        
         if(toDo.check === true) {
             checkboxElement.setAttribute('checked', "")
             liElement.setAttribute('style', 'text-decoration: line-through');
         } else {
             liElement.setAttribute('style', 'text-decoration: none');
         }
-
+        
+        
+        
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
-
-
+        
+        
         let iconTrash = document.createElement('i');
         iconTrash.setAttribute('class', 'fa-solid fa-trash');
-
+        
         linkElement.appendChild(iconTrash);
-
+        
         // Criar lógica do botão de remover tudo
         btnRemoveAll.setAttribute('style', 'display: block')
-
+        
         let position = tasks.indexOf(toDo);
-
+        
         linkElement.setAttribute("onclick", `deleteTask(${position})`);
+        
+        tasksElement.appendChild(liElement);
 
         liElement.append(checkboxElement)
-        tasksElement.appendChild(liElement);
         liElement.appendChild(taskText);
-        liElement.appendChild(linkElement);
-
+        liElement.appendChild(rightColumnLi)
+        rightColumnLi.appendChild(linkElement);
+        
+        liElement.addEventListener('change', (event) => {
+    
+            console.log(event.target.checked);
+    
+            if(event.target.checked === true) {
+                toDo.check = true;
+                console.log(`Array Check: ${toDo.check}`)
+                liElement.setAttribute('style', 'text-decoration: line-through');
+    
+            } else {
+                toDo.check = false;
+                console.log(`Array Check: ${toDo.check}`)
+                liElement.setAttribute('style', 'text-decoration: none');
+    
+            }
+            saveData();
+        })
     });
 }
 

@@ -69,11 +69,15 @@ main {
 
 .box-list {
     width: 690px;
-    height: 400px;
+    height: 800px;
     margin-top: 70px;   
     
     display: flex;
     flex-direction: column;
+
+    margin-bottom: 40px;
+
+    overflow-y: scroll;
 }
 
 .text-box{
@@ -93,8 +97,16 @@ main {
     padding: 10px 12px;
     display: flex;
     border-radius: 7px;
+    width: 100%;
 
-    justify-content: space-between;
+    justify-content: center;
+
+}
+
+.box-list li div{
+    width: 100%;
+    display: flex;
+    justify-content: end;
 }
 
 .box-list li i {
