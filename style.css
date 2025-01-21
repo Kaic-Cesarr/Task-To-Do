@@ -98,7 +98,7 @@ main {
     display: flex;
     border-radius: 7px;
     width: 100%;
-
+    flex: 1;
     justify-content: center;
 
 }
@@ -106,6 +106,7 @@ main {
 .box-list li div{
     width: 100%;
     display: flex;
+    flex: 1;
     justify-content: end;
 }
 
@@ -127,10 +128,6 @@ main {
     /* margin-right: 40px;  */
 }
 
-
-.box-list a {
-
-}
 
 .box-list li:hover {
     background-color: #d2d1d1;
