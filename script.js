@@ -1,7 +1,7 @@
 tasksElement = document.querySelector("#tasks ul")
 inputElement = document.querySelector('.input-tasks');
-textBox = document.querySelector('.text-boxEmpty')
-btnRemoveAll = document.querySelector('.removeAll');
+btnRemoveAll = document.querySelector('.btnRemoveAll');
+textBoxEmpty = document.querySelector('.text-boxEmpty')
 
 
 
@@ -15,6 +15,7 @@ document.addEventListener("keypress", function(e) {
 })
 
 function registerTasks() {
+
     if (inputElement.value === ""){
         alert("Digite algum tarefa");
         return false;
@@ -33,14 +34,28 @@ function registerTasks() {
 
 
 
+
+
 function renderTasks() {
+
+    if(tasks.length === 0) {
+        btnRemoveAll.setAttribute('style', 'display: none');
+    }
+
+    if(tasks.length != 0) {
+        textBoxEmpty.setAttribute('style', 'display: none');
+    } else {
+        textBoxEmpty.setAttribute('style', 'display: flex');
+
+    }
+
+
+
     tasksElement.innerHTML = "";
 
+    console.log(tasks)
+
     tasks.map((toDo) => {
-        if(tasks.length != 0) {
-            textBox.innerHTML = "";
-            console.log(textBox)
-        }
 
         let liElement = document.createElement("li");
         let taskText = document.createTextNode(toDo.text); 
@@ -50,24 +65,30 @@ function renderTasks() {
         checkboxElement.setAttribute("type", "checkbox")
         
 
-        checkboxElement.addEventListener('change', (event) => {
+        liElement.addEventListener('change', (event) => {
+
             console.log(event.target.checked);
 
             if(event.target.checked === true) {
-                console.log("Marcado");
                 toDo.check = true;
-
-                checkboxElement.attr('', 'checked')
-
+                console.log(`Array Check: ${toDo.check}`)
                 liElement.setAttribute('style', 'text-decoration: line-through');
-            } else {
-                console.log("Desmarcado");
-                liElement.setAttribute('style', 'text-decoration: none');
-                toDo.check = false;
-            }
 
+            } else {
+                toDo.check = false;
+                console.log(`Array Check: ${toDo.check}`)
+                liElement.setAttribute('style', 'text-decoration: none');
+
+            }
             saveData();
         })
+
+        if(toDo.check === true) {
+            checkboxElement.setAttribute('checked', "")
+            liElement.setAttribute('style', 'text-decoration: line-through');
+        } else {
+            liElement.setAttribute('style', 'text-decoration: none');
+        }
 
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
@@ -100,6 +121,9 @@ function deleteTask(position) {
     saveData();
 }
 
+function textWindow() {
+}
+
 function deleteList() {
     tasks = [];
     renderTasks();
@@ -108,6 +132,7 @@ function deleteList() {
 
 function registerButton() {
     registerTasks();
+    renderTasks();
 }
 
 
