@@ -92,8 +92,19 @@ main {
     list-style: none;
     padding: 10px 12px;
     display: flex;
-
     border-radius: 7px;
+
+    justify-content: space-between;
+}
+
+.box-list li i {
+    color: #131313;
+    transition: .3s;
+}
+
+.box-list li i:hover {
+    color: #da1c1c;
+    scale: 1.07;
 }
 
 .box-list input{
@@ -106,8 +117,7 @@ main {
 
 
 .box-list a {
-    position: absolute;
-    right: 16%;
+
 }
 
 .box-list li:hover {

@@ -93,13 +93,14 @@ function renderTasks() {
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
 
-        
+
+        let iconTrash = document.createElement('i');
+        iconTrash.setAttribute('class', 'fa-solid fa-trash');
+
+        linkElement.appendChild(iconTrash);
+
         // Criar lógica do botão de remover tudo
         btnRemoveAll.setAttribute('style', 'display: block')
-        
-
-        let linkText = document.createTextNode("deletar");
-        linkElement.appendChild(linkText);
 
         let position = tasks.indexOf(toDo);
 
