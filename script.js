@@ -3,8 +3,6 @@ inputElement = document.querySelector('.input-tasks');
 btnRemoveAll = document.querySelector('.btnRemoveAll');
 textBoxEmpty = document.querySelector('.text-boxEmpty')
 
-
-
 let tasks = JSON.parse(localStorage.getItem("@toDoList")) || [];
 
 document.addEventListener("keypress", function(e) {
