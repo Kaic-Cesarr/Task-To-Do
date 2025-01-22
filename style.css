@@ -205,6 +205,12 @@ main {
 }
 
 @media (max-width: 580px) {
+
+    body{
+        width: 100%;
+        height: 100vh;
+    }
+
     .box-text {
         width: 350px;
     }
