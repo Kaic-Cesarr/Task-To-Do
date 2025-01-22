@@ -1,7 +1,7 @@
 tasksElement = document.querySelector("#tasks ul")
 inputElement = document.querySelector('.input-tasks');
 btnRemoveAll = document.querySelector('.btnRemoveAll');
-textBoxEmpty = document.querySelector('.text-boxEmpty')
+textBoxEmpty = document.querySelector('.text-boxEmpty');
 
 let tasks = JSON.parse(localStorage.getItem("@toDoList")) || [];
 
@@ -31,9 +31,6 @@ function registerTasks() {
 
 
 
-
-
-
 function renderTasks() {
 
     if(tasks.length === 0) {
@@ -46,8 +43,6 @@ function renderTasks() {
         textBoxEmpty.setAttribute('style', 'display: flex');
 
     }
-
-
 
     tasksElement.innerHTML = "";
 
@@ -75,17 +70,14 @@ function renderTasks() {
         }
         
         
-        
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
-        
         
         let iconTrash = document.createElement('i');
         iconTrash.setAttribute('class', 'fa-solid fa-trash');
         
         linkElement.appendChild(iconTrash);
         
-        // Criar lógica do botão de remover tudo
         btnRemoveAll.setAttribute('style', 'display: block')
         
         let position = tasks.indexOf(toDo);
@@ -143,7 +135,6 @@ function registerButton() {
 
 
 function saveData() {
+    // Essa função é responsável por salvar as tarefas no localStorage.
     localStorage.setItem("@toDoList", JSON.stringify(tasks));
-
-    // Adicionar checkbox no localStorage
 }
