@@ -222,6 +222,10 @@ main {
         height: 400px;
     }
 
+    .box-input button {
+        height: 48px;
+    }
+
     .box-list .text-boxEmpty {
         font-size: 22px;
     }
